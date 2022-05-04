@@ -21,10 +21,32 @@ public class ClientsPane extends javax.swing.JPanel {
         initComponents();
 
         dbManeger = new DBManeger();
+        String Cols[]={"customer_id", "store_id", "First Name","Last Name", "Email", "Address", "Address2", "District", "City", "Postal Code", "Phone"};
+        scrollTable1.formatColumns(Cols);
+        initData();
     }
 
     public void initData(){
-        //
+        int cols = 11;
+        String query = "SELECT customer_id, store_id, first_name, last_name, email, u20473509_sakila.address.address, u20473509_sakila.address.address2, u20473509_sakila.address.district, u20473509_sakila.city.city, u20473509_sakila.address.postal_code, u20473509_sakila.address.phone FROM u20473509_sakila.customer INNER JOIN u20473509_sakila.address on u20473509_sakila.customer.address_id = u20473509_sakila.address.address_id INNER JOIN u20473509_sakila.city on u20473509_sakila.address.city_id = u20473509_sakila.city.city_id;";
+        scrollTable1.deleteData();
+        String[][] data;
+        java.sql.ResultSet rs = dbManeger.executeQuery(query);
+        try {
+            rs.last();
+            data = new String[rs.getRow()][cols];
+            rs.beforeFirst();
+            int i = 0;
+            while(rs.next()){
+                for (int j = 0; j < cols; j++) {
+                    data[i][j] = rs.getString(j+1);
+                }
+                scrollTable1.addRow(data[i]);
+                i++;
+            }
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+        }
     }
 
     /**

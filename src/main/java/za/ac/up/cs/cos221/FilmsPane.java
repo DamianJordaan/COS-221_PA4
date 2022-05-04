@@ -21,10 +21,32 @@ public class FilmsPane extends javax.swing.JPanel {
         initComponents();
 
         dbManeger = new DBManeger();
+        String Cols[]={"title", "description", "release_year", "language", "length", "rental_duration", "rental_rate", "replacement_cost", "rating", "special_features"};
+        scrollTable1.formatColumns(Cols);
+        initData();
     }
 
     public void initData(){
-        //
+        String query = "SELECT title, description, release_year, u20473509_sakila.language.name, length, rental_duration, rental_rate, replacement_cost, rating, special_features FROM u20473509_sakila.film inner join u20473509_sakila.language on u20473509_sakila.film.language_id = u20473509_sakila.language.language_id;";
+        int cols = 10;
+        scrollTable1.deleteData();
+        String[][] data;
+        java.sql.ResultSet rs = dbManeger.executeQuery(query);
+        try {
+            rs.last();
+            data = new String[rs.getRow()][cols];
+            rs.beforeFirst();
+            int i = 0;
+            while(rs.next()){
+                for (int j = 0; j < cols; j++) {
+                    data[i][j] = rs.getString(j+1);
+                }
+                scrollTable1.addRow(data[i]);
+                i++;
+            }
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+        }
     }
 
     /**
