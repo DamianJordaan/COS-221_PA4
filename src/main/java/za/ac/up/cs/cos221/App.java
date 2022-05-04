@@ -1,7 +1,7 @@
 package za.ac.up.cs.cos221;
 
 /**
- * Hello world!
+ * //
  *
  */
 public class App 
