@@ -209,7 +209,13 @@ public class AddFilmPopup extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
+        DBManeger db = new DBManeger();
+
+        String query = "INSERT INTO movies (title, year, language, original_language, rating, length, rent, cost) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        // db.executeQuery(query);
+
         parent.initData();
+        dispose();
     }//GEN-LAST:event_jButtonAddActionPerformed
 
     private void jComboBoxLangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxLangActionPerformed
