@@ -7,6 +7,8 @@ package za.ac.up.cs.cos221;
 
 import java.sql.ResultSet;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author djjor
@@ -93,7 +95,8 @@ public class FilmsPane extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
-        // TODO add your handling code here:
+        AddFilmPopup dialog = new AddFilmPopup(this);
+        dialog.setVisible(true);
     }//GEN-LAST:event_jButtonAddActionPerformed
 
 

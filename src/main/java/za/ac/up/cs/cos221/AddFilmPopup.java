@@ -5,17 +5,21 @@
  */
 package za.ac.up.cs.cos221;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author djjor
  */
 public class AddFilmPopup extends javax.swing.JFrame {
+    FilmsPane parent;
 
     /**
      * Creates new form AddFilmPopup
      */
-    public AddFilmPopup() {
+    public AddFilmPopup(FilmsPane parent) {
         initComponents();
+        this.parent = parent;
     }
 
     /**
@@ -205,7 +209,7 @@ public class AddFilmPopup extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
-        // TODO add your handling code here:
+        parent.initData();
     }//GEN-LAST:event_jButtonAddActionPerformed
 
     private void jComboBoxLangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxLangActionPerformed
@@ -246,7 +250,7 @@ public class AddFilmPopup extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddFilmPopup().setVisible(true);
+                new AddFilmPopup(null).setVisible(true);
             }
         });
     }
