@@ -16,17 +16,14 @@ public class StaffPane extends javax.swing.JPanel {
      */
     public StaffPane() {
         initComponents();
-        String staffCols[]={"ID","First Name","Last Name","Last Updated"};
-        String data[][]={
-            {"1","Bob","Nath","xxx"},
-            {"2","Zack","Jeff","xxx"},
-            {"3","Damian","Jobs","xxx"},
-        };
+        String staffCols[]={"ID","First Name","Last Name","Address", "Address2", "District", "City", "Postal Code", "Phone", "Store"};
+        String data[][];
         scrollTable1.formatColumns(staffCols);
+        initData();
+    }
+
+    public void initData(){
         scrollTable1.deleteData();
-        for (int i = 0; i < data.length; i++) {
-            scrollTable1.addRow(data[i]);
-        }
     }
 
     /**
