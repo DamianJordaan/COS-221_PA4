@@ -32,4 +32,15 @@
       <version>3.0.4</version>
     </dependency>
   </dependencies>
+
+  <developers>
+    <developer>
+      <id>DJ</id>
+      <name>Damian Jordaan</name>
+      <email>u20473509@tuks.co.za</email>
+      <roles>
+        <role>Developer</role>
+      </roles>
+    </developer>
+  </developers>
 </project>
