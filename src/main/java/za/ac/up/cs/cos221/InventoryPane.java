@@ -5,17 +5,22 @@
  */
 package za.ac.up.cs.cos221;
 
+import java.sql.ResultSet;
+
 /**
  *
  * @author djjor
  */
 public class InventoryPane extends javax.swing.JPanel {
+    private DBManeger dbManeger;
 
     /**
      * Creates new form InventoryPane
      */
     public InventoryPane() {
         initComponents();
+
+        dbManeger = new DBManeger();
     }
 
     public void initData(){

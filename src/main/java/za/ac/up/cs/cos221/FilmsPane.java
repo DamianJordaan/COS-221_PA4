@@ -5,17 +5,22 @@
  */
 package za.ac.up.cs.cos221;
 
+import java.sql.ResultSet;
+
 /**
  *
  * @author djjor
  */
 public class FilmsPane extends javax.swing.JPanel {
+    private DBManeger dbManeger;
 
     /**
      * Creates new form FilmsPane
      */
     public FilmsPane() {
         initComponents();
+
+        dbManeger = new DBManeger();
     }
 
     public void initData(){

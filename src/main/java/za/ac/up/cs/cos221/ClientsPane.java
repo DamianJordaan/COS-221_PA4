@@ -5,17 +5,22 @@
  */
 package za.ac.up.cs.cos221;
 
+import java.sql.ResultSet;
+
 /**
  *
  * @author djjor
  */
 public class ClientsPane extends javax.swing.JPanel {
+    private DBManeger dbManeger;
 
     /**
      * Creates new form ClientsPane
      */
     public ClientsPane() {
         initComponents();
+
+        dbManeger = new DBManeger();
     }
 
     public void initData(){
