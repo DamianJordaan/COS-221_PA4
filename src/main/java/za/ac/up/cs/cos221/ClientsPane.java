@@ -27,12 +27,31 @@ public class ClientsPane extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButtonAdd = new javax.swing.JButton();
+        scrollTable1 = new za.ac.up.cs.cos221.ScrollTable();
+        jButtonEdit = new javax.swing.JButton();
+        jButtonDelete = new javax.swing.JButton();
 
-        jLabel1.setText("ct");
+        jButtonAdd.setText("Add");
+        jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddActionPerformed(evt);
+            }
+        });
 
-        jButton1.setText("jButton1");
+        jButtonEdit.setText("Edit");
+        jButtonEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEditActionPerformed(evt);
+            }
+        });
+
+        jButtonDelete.setText("Delete");
+        jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -40,25 +59,48 @@ public class ClientsPane extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 295, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(scrollTable1, javax.swing.GroupLayout.DEFAULT_SIZE, 710, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonAdd)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonEdit)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonDelete)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel1))
-                .addContainerGap(263, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonAdd)
+                    .addComponent(jButtonEdit)
+                    .addComponent(jButtonDelete))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(scrollTable1, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonAddActionPerformed
+
+    private void jButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonEditActionPerformed
+
+    private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonDeleteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButtonAdd;
+    private javax.swing.JButton jButtonDelete;
+    private javax.swing.JButton jButtonEdit;
+    private za.ac.up.cs.cos221.ScrollTable scrollTable1;
     // End of variables declaration//GEN-END:variables
 }

@@ -39,39 +39,40 @@ public class StaffPane extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldStaffFName = new javax.swing.JTextField();
+        jTextFieldStaffLName = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextFieldStaffNameFilter = new javax.swing.JTextField();
-        jButtonStaffFilter = new javax.swing.JButton();
+        jTextFieldStaffStore = new javax.swing.JTextField();
+        jButtonFilter = new javax.swing.JButton();
         scrollTable1 = new za.ac.up.cs.cos221.ScrollTable();
-        jLabel4 = new javax.swing.JLabel();
+        jButtonClearFilter = new javax.swing.JButton();
 
-        jLabel3.setText("jLabel3");
+        jLabel3.setText("First Name");
 
-        jTextField2.setText("jTextField2");
+        jLabel1.setText("Last Name");
 
-        jTextField1.setText("jTextField1");
+        jLabel2.setText("Store");
 
-        jLabel1.setText("jLabel1");
-
-        jLabel2.setText("Name");
-
-        jTextFieldStaffNameFilter.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextFieldStaffStore.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextFieldStaffNameFilterKeyReleased(evt);
+                jTextFieldStaffStoreKeyReleased(evt);
             }
         });
 
-        jButtonStaffFilter.setText("Filter");
-        jButtonStaffFilter.addActionListener(new java.awt.event.ActionListener() {
+        jButtonFilter.setText("Filter");
+        jButtonFilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonStaffFilterActionPerformed(evt);
+                jButtonFilterActionPerformed(evt);
             }
         });
 
-        jLabel4.setText("staff test");
+        jButtonClearFilter.setText("Clear");
+        jButtonClearFilter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonClearFilterActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -81,10 +82,8 @@ public class StaffPane extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldStaffFName, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -92,13 +91,15 @@ public class StaffPane extends javax.swing.JPanel {
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel2)
-                                .addGap(108, 108, 108))
+                                .addGap(96, 96, 96))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextFieldStaffLName, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextFieldStaffNameFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                        .addComponent(jButtonStaffFilter))
+                                .addComponent(jTextFieldStaffStore, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 357, Short.MAX_VALUE)
+                        .addComponent(jButtonClearFilter)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonFilter))
                     .addComponent(scrollTable1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -107,42 +108,47 @@ public class StaffPane extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButtonFilter)
+                        .addComponent(jButtonClearFilter))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(jLabel1)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
+                            .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldStaffNameFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jButtonStaffFilter))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(scrollTable1, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE)
+                            .addComponent(jTextFieldStaffStore, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldStaffLName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldStaffFName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(14, 14, 14)
+                .addComponent(scrollTable1, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldStaffNameFilterKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldStaffNameFilterKeyReleased
+    private void jTextFieldStaffStoreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldStaffStoreKeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldStaffNameFilterKeyReleased
+    }//GEN-LAST:event_jTextFieldStaffStoreKeyReleased
 
-    private void jButtonStaffFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStaffFilterActionPerformed
+    private void jButtonFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFilterActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonStaffFilterActionPerformed
+    }//GEN-LAST:event_jButtonFilterActionPerformed
+
+    private void jButtonClearFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearFilterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonClearFilterActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonStaffFilter;
+    private javax.swing.JButton jButtonClearFilter;
+    private javax.swing.JButton jButtonFilter;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextFieldStaffNameFilter;
+    private javax.swing.JTextField jTextFieldStaffFName;
+    private javax.swing.JTextField jTextFieldStaffLName;
+    private javax.swing.JTextField jTextFieldStaffStore;
     private za.ac.up.cs.cos221.ScrollTable scrollTable1;
     // End of variables declaration//GEN-END:variables
 }
