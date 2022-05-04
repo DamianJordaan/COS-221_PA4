@@ -5,25 +5,54 @@
  */
 package za.ac.up.cs.cos221;
 
+import java.sql.ResultSet;
+
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author djjor
  */
 public class StaffPane extends javax.swing.JPanel {
+    private DBManeger dbManeger;
 
     /**
      * Creates new form StaffPane
      */
     public StaffPane() {
         initComponents();
+
+        dbManeger = new DBManeger();
+
         String staffCols[]={"ID","First Name","Last Name","Address", "Address2", "District", "City", "Postal Code", "Phone", "Store"};
-        String data[][];
         scrollTable1.formatColumns(staffCols);
         initData();
     }
 
     public void initData(){
+        String query = "SELECT staff_id, first_name, last_name, u20473509_sakila.address.address, u20473509_sakila.address.address2, u20473509_sakila.address.district, u20473509_sakila.city.city, u20473509_sakila.address.postal_code, u20473509_sakila.address.phone, store_id as store FROM u20473509_sakila.staff INNER JOIN u20473509_sakila.address on u20473509_sakila.staff.address_id = u20473509_sakila.address.address_id INNER JOIN u20473509_sakila.city on u20473509_sakila.address.city_id = u20473509_sakila.city.city_id;";
+        populateTable(query, 10);
+    }
+
+    public void populateTable(String query, int cols){
         scrollTable1.deleteData();
+        String[][] data;
+        java.sql.ResultSet rs = dbManeger.executeQuery(query);
+        try {
+            rs.last();
+            data = new String[rs.getRow()][cols];
+            rs.beforeFirst();
+            int i = 0;
+            while(rs.next()){
+                for (int j = 0; j < cols; j++) {
+                    data[i][j] = rs.getString(j+1);
+                }
+                scrollTable1.addRow(data[i]);
+                i++;
+            }
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+        }
     }
 
     /**
@@ -129,11 +158,38 @@ public class StaffPane extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextFieldStaffStoreKeyReleased
 
     private void jButtonFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFilterActionPerformed
-        // TODO add your handling code here:
+        if(jTextFieldStaffFName.getText().isEmpty() && jTextFieldStaffLName.getText().isEmpty() && jTextFieldStaffStore.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Please enter at least one filter");
+        }else{
+            String fname = jTextFieldStaffFName.getText();
+            String lname = jTextFieldStaffLName.getText();
+            String store = jTextFieldStaffStore.getText();
+            String query = "SELECT staff_id, first_name, last_name, u20473509_sakila.address.address, u20473509_sakila.address.address2, u20473509_sakila.address.district, u20473509_sakila.city.city, u20473509_sakila.address.postal_code, u20473509_sakila.address.phone, store_id as store FROM u20473509_sakila.staff INNER JOIN u20473509_sakila.address on u20473509_sakila.staff.address_id = u20473509_sakila.address.address_id INNER JOIN u20473509_sakila.city on u20473509_sakila.address.city_id = u20473509_sakila.city.city_id WHERE ";
+            if(!fname.isEmpty()){
+                query += "first_name LIKE '%"+fname+"%'";
+            }
+            if(!lname.isEmpty()){
+                if(!fname.isEmpty()){
+                    query += " AND ";
+                }
+                query += "last_name LIKE '%"+lname+"%'";
+            }
+            if(!store.isEmpty()){
+                if(!fname.isEmpty() || !lname.isEmpty()){
+                    query += " AND ";
+                }
+                query += "store_id LIKE '%"+store+"%'";
+            }
+            query += ";";
+            populateTable(query, 10);
+        }
     }//GEN-LAST:event_jButtonFilterActionPerformed
 
     private void jButtonClearFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearFilterActionPerformed
-        // TODO add your handling code here:
+        jTextFieldStaffFName.setText("");
+        jTextFieldStaffLName.setText("");
+        jTextFieldStaffStore.setText("");
+        initData();
     }//GEN-LAST:event_jButtonClearFilterActionPerformed
 
 

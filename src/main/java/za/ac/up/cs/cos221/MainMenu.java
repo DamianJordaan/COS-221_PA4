@@ -62,8 +62,11 @@ public class MainMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
-        // TODO add your handling code here:
         System.out.println("tab changed");
+        clientsPane1.initData();
+        filmsPane1.initData();
+        inventoryPane1.initData();
+        staffPane1.initData();
     }//GEN-LAST:event_jTabbedPane1StateChanged
 
     /**

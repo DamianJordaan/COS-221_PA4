@@ -30,17 +30,31 @@ public class ScrollTable extends javax.swing.JPanel {
         formatTableCols(jTable, cols);
     }
     public void formatTableCols(JTable table, Object[] cols){
-        //remove table cols
-        for (int i = table.getColumnCount()-1; i >= 0; i--) {
-            table.removeColumn(table.getColumnModel().getColumn(i));
-        }
-        
-        //add Cols
+        // //remove table cols
+        // for (int i = table.getColumnCount()-1; i >= 0; i--) {
+        //     table.removeColumn(table.getColumnModel().getColumn(i));
+        // }
+        // //add Cols
+        // for (int i = 0; i < 4; i++) {
+        //     TableColumn c = new TableColumn(i);
+        //     c.setHeaderValue(cols[i]);
+        //     table.addColumn(c);
+        //     table.
+        // }
+
+        Object[][] obj = new Object[2][cols.length];
+        String[] str = new String[cols.length];
         for (int i = 0; i < cols.length; i++) {
-            TableColumn c = new TableColumn(i);
-            c.setHeaderValue(cols[i]);
-            table.addColumn(c);
+            obj[0][i] = null;
+            obj[1][i] = null;
+
+            str[i] = cols[i].toString();
         }
+
+        table.setModel(new javax.swing.table.DefaultTableModel(
+            obj,
+            str
+        ));
     }
     
     public void deleteData(){
